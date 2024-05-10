@@ -163,7 +163,7 @@ void font_render_glyph(const U8G2FontRender_t *font, U8G2FontGlyph_t *glyph, uin
 				x_pos++;
 
 				pixels++;
-				if (pixels % glyph->width == 0) {
+				if (glyph->width && (pixels % glyph->width == 0)) {
 					y_pos++;
 					x_pos = x + font_draw_start_x_position(font, glyph);
 				}
