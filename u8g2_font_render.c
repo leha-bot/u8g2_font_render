@@ -64,34 +64,34 @@ void U8G2FontRender_Print(U8G2FontRender_t *font, uint8_t x, uint8_t y, char *st
 }
 
 uint8_t font_get_unsigned_bits(U8G2FontGlyph_t *glyph, uint8_t count) {
-  uint8_t val;
-  uint8_t start = glyph->bit_pos;
-  uint8_t end = start + count;
+	uint8_t val;
+	uint8_t start = glyph->bit_pos;
+	uint8_t end = start + count;
 
-  val = pgm_read(glyph->data);
-  val >>= start;
+	val = pgm_read(glyph->data);
+	val >>= start;
 
-  if (end >= 8) {
-    uint8_t cnt = 8 - start;
-    glyph->data++;
+	if (end >= 8) {
+		uint8_t cnt = 8 - start;
+		glyph->data++;
 
-    val |= pgm_read(glyph->data) << (cnt);
+		val |= pgm_read(glyph->data) << (cnt);
 
-    end -= 8;
-  }
+		end -= 8;
+	}
 
-  glyph->bit_pos = end;
+	glyph->bit_pos = end;
 
-  val &= (1U << count) - 1;
+	val &= (1U << count) - 1;
 
-  return val;
+	return val;
 }
 
 int8_t font_get_signed_bits(U8G2FontGlyph_t *glyph, uint8_t count) {
-  int8_t val = (int8_t)font_get_unsigned_bits(glyph, count);
-  val -= 1 << (count - 1);
+	int8_t val = (int8_t)font_get_unsigned_bits(glyph, count);
+	val -= 1 << (count - 1);
 
-  return val;
+	return val;
 }
 
 uint16_t font_get_start_symbol_search_postition(U8G2FontRender_t *font, char chr) {
