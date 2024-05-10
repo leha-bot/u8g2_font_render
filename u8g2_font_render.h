@@ -8,8 +8,8 @@
 #ifndef INC_U8G2_FONT_RENDER_H_
 #define INC_U8G2_FONT_RENDER_H_
 
-#include "stm32f1xx_hal.h"
 #include <stdlib.h>
+#include <stdint.h>
 #include <string.h>
 
 
