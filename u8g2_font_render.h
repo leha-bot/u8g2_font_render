@@ -12,6 +12,9 @@
 #include <stdint.h>
 #include <string.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #define U8G2_FONT_HEADER_SIZE 23
 
@@ -79,5 +82,8 @@ U8G2FontHeader_t U8G2FontRender_ParseHeader(U8G2FontRender_t *font);
 void U8G2FontRender_PrintChar(U8G2FontRender_t *font, uint8_t *x, uint8_t y, char chr);
 void U8G2FontRender_Print(U8G2FontRender_t *font, uint8_t x, uint8_t y, char *str);
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* INC_U8G2_FONT_RENDER_H_ */
